@@ -26,7 +26,7 @@ import { RestaurantcomponentComponent } from './restaurantcomponent/restaurantco
     FormsModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' , children:[
-        {path:'restaurants' , component:RestaurantcomponentComponent},
+        {path:'restaurant/:city/:restaurant' , component:RestaurantcomponentComponent},
       ] },
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },

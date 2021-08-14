@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Restaurant } from '../_models/restaurant';
+import { RestaurantServicesService } from './../_services/restaurant-services.service';
 
 @Component({
   selector: 'app-restaurantcomponent',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RestaurantcomponentComponent implements OnInit {
 
-  constructor() { }
 
+  restaurants:Restaurant[];
+
+  constructor(private restaurantService:RestaurantServicesService){}
   ngOnInit() {
+  }
+
+  search(city:number , restaurant:string){
+    this.restaurantService.searchByCity(city,restaurant).subscribe(
+      res => {
+        console.log(res);
+        this.restaurants = res;
+      }
+    )
   }
 
 }
