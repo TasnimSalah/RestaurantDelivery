@@ -34,7 +34,7 @@ namespace RestaurantDelivery.Controllers
 
 
         //get by restaurant id
-        [HttpGet("menu/{id}")]
+        [HttpGet("{id}")]
         public IEnumerable<Meal> Get(int id)
         {
             return _MenuService.GetAll().Where(m => m.RestaurantId == id).Select(m => m.Meal).ToList();
